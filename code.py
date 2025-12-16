@@ -17,7 +17,6 @@ import time
 led = DigitalInOut(board.LED)
 led.direction = Direction.OUTPUT
 
-
 switch1 = DigitalInOut(board.GP3)
 switch1.direction = Direction.INPUT
 switch1.pull = Pull.UP

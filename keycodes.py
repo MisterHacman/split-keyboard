@@ -1,7 +1,8 @@
+import sys
 
-try:
+if sys.implementation.name == "circuitpython":
 	import board
-except ImportError:
+else:
 	import mock_board as board
 
 from digitalio import DigitalInOut, Direction, Pull
@@ -12,7 +13,6 @@ def alt(self, keys):
 	return self.ALT + self.RIGHT_CTRL + keys
 
 class AnsiKey:
-
 	A = (0x04,)
 	B = (0x05,)
 	C = (0x06,)
