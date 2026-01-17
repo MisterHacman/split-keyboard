@@ -11,11 +11,24 @@ import usb_hid
 from adafruit_hid.keyboard import Keyboard
 
 from keycodes import AnsiKey
-from communication import recv
+from communication import *
 
 import time
 
 keyboard = Keyboard(usb_hid.devices)
+
+comm_pin = DigitalInOut(board.GP2)
+comm_pin.direction = Direction.INPUT
+
+def recv() -> list[bool]:
+	wait_for_segment_send()
+	sleep_us(bit_duration * 0.5) # ensures we don't read before written
+	
+	keys = []
+	for _ in range(num_buttons):
+		keys.append(comm_pin.value)
+		sleep_us(bit_duration)
+	return keys
 
 def read_keys() -> list[bool]:
 	pass

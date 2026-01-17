@@ -8,9 +8,19 @@ else:
 from digitalio import DigitalInOut, Direction, Pull
 
 from keycodes import AnsiKey
-from communication import send
+from communication import *
 
 import time
+
+comm_pin = DigitalInOut(board.GP2)
+comm_pin.direction = Direction.OUTPUT
+
+def send(bits: list[bool]): # only `num_buttons` bits will be written
+	wait_for_segment_send()
+
+	for i in range(num_buttons):
+		comm_pin.value = bits[i]
+		sleep_us(bit_duration)
 
 def read_keys() -> list[bool]:
 	pass
