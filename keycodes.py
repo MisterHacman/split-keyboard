@@ -1,3 +1,5 @@
+# Contains the class for HID key aliases
+
 import sys
 
 if sys.implementation.name == "circuitpython":
@@ -115,5 +117,3 @@ class Key:
 	# UNDERSCORE = shift(MINUS)
 	# GREATER = shift(LESS)
 	# BAR = alt(LESS)
-
-

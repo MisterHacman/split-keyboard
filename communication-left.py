@@ -1,3 +1,5 @@
+# The hosts communication protocol
+
 import sys
 
 if sys.implementation.name == "circuitpython":

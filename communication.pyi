@@ -1,3 +1,5 @@
+# Interface file for the communication functions in communication-left.py and communication-right.py
+
 import sys
 
 if sys.implementation.name == "circuitpython":
