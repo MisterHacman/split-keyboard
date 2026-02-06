@@ -12,7 +12,7 @@ def shift(self, keys):
 def alt(self, keys):
 	return self.ALT + self.RIGHT_CTRL + keys
 
-class AnsiKey:
+class Key:
 	A = (0x04,)
 	B = (0x05,)
 	C = (0x06,)
